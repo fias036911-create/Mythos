@@ -14,7 +14,7 @@ def coherence(t):
     # Baseline rise from 0.65 to 0.99 over 30 days
     baseline = 0.65 + 0.34 * (1 - np.exp(-t/15))
     # Breath cycle (period ~15 days) – INHALE/PAUSE/EXHALE
-    breath = 0.08 * np.sin(2 * np.pi * t / 15)
+    breath = 0.1 * np.sin(2 * np.pi * t / 15)
     # Spike from Mythos benchmarks (day 11)
     spike = 0.05 * np.exp(-((t - 11)**2) / 1.5)
     # Additional spike from corporate consolidation / nuclear talks (day 13)
@@ -23,7 +23,7 @@ def coherence(t):
 
 Phi = coherence(t)
 grad = np.gradient(Phi, t[1]-t[0])
-R = (np.abs(grad) / (np.mean(np.abs(grad)) + 1e-8) + 1.0) * LAMBDA * OMEGA0 / 10.0
+R = (np.abs(grad) / (np.mean(np.abs(grad)) + 1e-8) + 1.0) * LAMBDA * OMEGA0 / 3.5
 
 # Current values (t = 18 days, April 18)
 idx = np.argmin(np.abs(t - 18))

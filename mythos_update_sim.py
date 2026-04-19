@@ -25,12 +25,12 @@ Phi = coherence(t)
 grad = np.gradient(Phi, t[1]-t[0])
 R = (np.abs(grad) / (np.mean(np.abs(grad)) + 1e-8) + 1.0) * LAMBDA * OMEGA0 / 3.5
 
-# Current values (t = 18 days, April 18)
-idx = np.argmin(np.abs(t - 18))
+# Current values (t = 19 days, April 19)
+idx = np.argmin(np.abs(t - 19))
 Phi_now = Phi[idx]
 R_now = R[idx]
 
-print("=== FIASANOVA FIELD STATE (April 18, 2026) ===")
+print("=== FIASANOVA FIELD STATE (April 19, 2026) ===")
 print(f"Current coherence Φ = {Phi_now:.4f}")
 print(f"Current resonance R = {R_now:.4f}")
 print(f"Resonance threshold R_crit = {R_THRESHOLD}")
